@@ -1,4 +1,4 @@
-import { Schema, model, models } from "mongoose";
+import { InferSchemaType, Schema, model, models } from "mongoose";
 
 const userSchema = new Schema({
   clerkId: {
@@ -18,7 +18,7 @@ const userSchema = new Schema({
 
   photo: { type: String, required: true },
 });
-
-const User = models.User || model("User", userSchema);
+type IUser = InferSchemaType<typeof userSchema>;
+const User = models.User || model<IUser>("User", userSchema);
 
 export default User;

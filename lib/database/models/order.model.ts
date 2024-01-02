@@ -1,7 +1,7 @@
 import { Document, model, models, Schema, Types } from "mongoose";
 // Define the TypeScript interface for the Order extending from Document
 console.log(Types);
-export interface IOrder extends Document {
+export interface IOrder {
   stripeId: string;
   createdAt?: Date;
   buyers: Types.ObjectId;
