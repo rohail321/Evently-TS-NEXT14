@@ -10,11 +10,12 @@ export default authMiddleware({
     "api/webhook/stript",
     "api/webhook/clerk",
     "/api/uploadthing",
-    "/api/webhooks(.*)",
+    "/api/webhook/clerk",
+    "/api/webhook/stripe",
   ],
   ignoredRoutes: [
-    "api/webhook/stript",
-    "api/webhook/clerk",
+    "/api/webhook/stript",
+    "/api/webhook/clerk",
     "/api/uploadthing",
   ],
 });
