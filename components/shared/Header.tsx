@@ -8,7 +8,7 @@ import NavMobile from "./NavMobile";
 function Header() {
   return (
     <header className='flex flex-row w-full border-b'>
-      <div className='flex flex-row  wrapper'>
+      <div className='flex items-center justify-between  wrapper'>
         <Link href='/' className='w-36'>
           <Image
             src='/assets/images/logo.svg'

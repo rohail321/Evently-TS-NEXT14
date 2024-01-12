@@ -18,7 +18,6 @@ const userSchema = new Schema({
 
   photo: { type: String, required: true },
 });
-type IUser = InferSchemaType<typeof userSchema>;
-const User = models.User || model<IUser>("User", userSchema);
+const User = models.User || model("User", userSchema);
 
 export default User;

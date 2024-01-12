@@ -1,25 +1,27 @@
 import { Document, model, models, Schema, Types } from "mongoose";
+
 // Define the TypeScript interface for the Order extending from Document
-console.log(Types);
 export interface IOrder {
-  stripeId: string;
   createdAt?: Date;
-  buyers: Types.ObjectId;
+  buyer: {
+    _id: string;
+    firstName: string;
+    lastName: string;
+  };
   totalAmount: number;
-  event: Types.ObjectId;
+  event: {
+    _id: string;
+    title: string;
+  };
+  quantity: number;
 }
 // Define the Mongoose schema for the Order
 const orderSchema = new Schema<IOrder>({
-  stripeId: {
-    type: String,
-    required: true,
-    unique: true,
-  },
   createdAt: {
     type: Date,
     default: Date.now,
   },
-  buyers: {
+  buyer: {
     type: Schema.Types.ObjectId,
     ref: "User",
   },
@@ -31,6 +33,7 @@ const orderSchema = new Schema<IOrder>({
     type: Schema.Types.ObjectId,
     ref: "Event",
   },
+  quantity: { type: Number, required: true },
 });
 
 // Export the Mongoose model for the Order
