@@ -11,7 +11,6 @@ type CardProps = {
   hidePrice?: boolean;
 };
 export default function Card({ event, hasOrderLink, hidePrice }: CardProps) {
-  console.log(!hidePrice);
   const { sessionClaims } = auth();
   const userId = sessionClaims?.userId as { userId: string };
   let isEventCreator;
@@ -54,7 +53,7 @@ export default function Card({ event, hasOrderLink, hidePrice }: CardProps) {
         )}
 
         <p className='p-medium-16 p-medium-18 text-grey-500'>
-          {formatDateTime(event.startDateTime).dateTime}
+          {formatDateTime(event?.startDateTime).dateTime}
         </p>
 
         <Link href={`/events/${event._id}`}>
