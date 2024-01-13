@@ -87,13 +87,14 @@ export const getOrderByOrganizer = async (userId: string) => {
 
     const eventParse = JSON.parse(JSON.stringify(eventExist));
     const orderParse = JSON.parse(JSON.stringify(userOrder));
-    console.log(orderParse);
     let orderArray: OrderArray[] = [];
-    for (let i = 0; i < eventParse?.length; i++) {
+    for (let i = 0; i < eventParse.length; i++) {
       for (let j = 0; j < orderParse.length; j++) {
         if (eventParse[i]._id === orderParse[j].event._id) {
-          const { __v, ...rest } = orderParse[i];
-          orderArray.unshift(rest);
+          if (orderParse[i] === undefined) {
+            continue;
+          }
+          orderArray.push(orderParse[i]);
         }
       }
     }

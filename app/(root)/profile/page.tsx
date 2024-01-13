@@ -11,7 +11,6 @@ async function page() {
   const { userId } = sessionClaims?.userId as { userId: string };
   const OrganizedEvents = await getEventsByUser({ userId, page: 1 });
   const orders = await getOrderByBuyer(userId);
-  console.log(orders);
 
   return (
     <>
